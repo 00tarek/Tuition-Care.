@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tuition Care – Find the Right Tutor for Your Child</title>
+<style>
+:root{--bg:#f6f8fc;--card:#fff;--text:#16213a;--muted:#5d6b88;--pri:#2457d6;--pri2:#e8eefc;--acc:#f59e0b;--ok:#16a34a;--bd:#dde4f2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1424;--card:#172038;--text:#e8edf8;--muted:#9aa8c7;--pri:#6b93ff;--pri2:#1f2c52;--bd:#2a3556;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1424;--card:#172038;--text:#e8edf8;--muted:#9aa8c7;--pri:#6b93ff;--pri2:#1f2c52;--bd:#2a3556;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--pri);text-decoration:none}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--card);border-bottom:1px solid var(--bd);z-index:5}
+nav{max-width:1080px;margin:auto;display:flex;align-items:center;gap:6px;padding:10px 16px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:20px;color:var(--text);margin-right:auto}
+.logo span{color:var(--pri)}
+nav a.l{padding:6px 10px;border-radius:8px;color:var(--text);font-size:14px}
+nav a.l:hover,nav a.on{background:var(--pri2);color:var(--pri)}
+main{max-width:1080px;margin:auto;padding:20px 16px 40px}
+.btn{display:inline-block;background:var(--pri);color:#fff;border:0;border-radius:10px;padding:10px 18px;font:600 15px inherit;cursor:pointer}
+.btn.o{background:transparent;color:var(--pri);border:1.5px solid var(--pri)}
+.btn.sm{padding:6px 12px;font-size:13px}
+.hero{background:linear-gradient(135deg,var(--pri),#5b8cff);color:#fff;border-radius:20px;padding:44px 24px;text-align:center}
+.hero h1{margin:0 0 8px;font-size:clamp(28px,5vw,44px)}
+.hero p{margin:0 auto 20px;max-width:560px;opacity:.95}
+.hero .btn{background:#fff;color:#2457d6;margin:4px}
+.hero .btn.o{background:transparent;color:#fff;border-color:#fff}
+h2{margin:28px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px}
+.card h3{margin:0 0 6px;font-size:17px}
+.muted{color:var(--muted);font-size:14px}
+.tag{display:inline-block;background:var(--pri2);color:var(--pri);border-radius:99px;padding:2px 10px;font-size:12px;margin:2px 4px 2px 0}
+.ok{background:#16a34a22;color:var(--ok)}
+.pend{background:#f59e0b22;color:#b45309}
+.big{font-size:30px;font-weight:800;color:var(--pri)}
+form{display:grid;gap:12px;max-width:560px}
+label{font-size:14px;font-weight:600;display:grid;gap:4px}
+input,select,textarea{font:inherit;padding:10px;border:1px solid var(--bd);border-radius:9px;background:var(--bg);color:var(--text);width:100%}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.bar input,.bar select{flex:1;min-width:150px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:480px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--bd);font-size:14px}
+.done{background:#16a34a22;border:1px solid var(--ok);padding:16px;border-radius:12px}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 16px}
+</style>
+</head>
+<body>
+<header><nav id="nav"></nav></header>
+<main id="app"></main>
+<footer>© 2026 Tuition Care · Find the Right Tutor for Your Child.</footer>
+<script>
+var SUB=['Math','English','Physics','Chemistry','Biology','ICT'],LOC=['Dhanmondi','Gulshan','Uttara','Mirpur','Mohammadpur','Banani'];
+var T=[
+{n:'Rahim Ahmed',s:['Math','Physics'],l:'Dhanmondi',e:'BSc Engineering, BUET',x:5,r:'৳6,000',v:1},
+{n:'Nusrat Jahan',s:['English'],l:'Gulshan',e:'BA English, Dhaka University',x:3,r:'৳4,500',v:1},
+{n:'Tanvir Hasan',s:['Chemistry','Biology'],l:'Uttara',e:'MBBS Student, DMC',x:4,r:'৳5,000',v:1},
+{n:'Sadia Islam',s:['Math','ICT'],l:'Mirpur',e:'BSc CSE, NSU',x:2,r:'৳4,000',v:0},
+{n:'Karim Uddin',s:['Physics','Math'],l:'Mohammadpur',e:'MSc Physics, JU',x:6,r:'৳5,500',v:1},
+{n:'Farhana Akter',s:['English','Biology'],l:'Banani',e:'BSc Biology, DU',x:3,r:'৳4,500',v:0}];
+var NAV=[['home','Home'],['about','About'],['find','Find Tutor'],['tutor-reg','Tutor Sign-up'],['guardian-reg','Guardian Sign-up'],['request','Tuition Request'],['contact','Contact'],['login','Login']];
+var opt=function(a,ph){return '<option value="">'+ph+'</option>'+a.map(function(x){return '<option>'+x+'</option>'}).join('')};
+var fld=function(l,t,ex){return '<label>'+l+'<input type="'+(t||'text')+'" required '+(ex||'')+'></label>'};
+var sel=function(l,a){return '<label>'+l+'<select required>'+opt(a,'Select…')+'</select></label>'};
+var form=function(inner,msg){return '<form class="f" data-m="'+msg+'">'+inner+'<button class="btn">Submit</button></form>'};
+var tcard=function(t){return '<div class="card"><h3>'+t.n+' '+(t.v?'<span class="tag ok">✓ Verified</span>':'<span class="tag pend">Pending</span>')+'</h3><div class="muted">'+t.e+'</div><p>'+t.s.map(function(s){return '<span class="tag">'+s+'</span>'}).join('')+'<span class="tag">📍 '+t.l+'</span></p><div class="muted">'+t.x+' yrs experience · '+t.r+'/month</div><p><a class="btn sm" href="#request">Request this tutor</a></p></div>'};
+var stat=function(a){return '<div class="grid">'+a.map(function(x){return '<div class="card"><div class="big">'+x[0]+'</div><div class="muted">'+x[1]+'</div></div>'}).join('')+'</div>'};
+var table=function(h,r){return '<div class="tw card"><table><tr>'+h.map(function(x){return '<th>'+x+'</th>'}).join('')+'</tr>'+r.map(function(x){return '<tr>'+x.map(function(c){return '<td>'+c+'</td>'}).join('')+'</tr>'}).join('')+'</table></div>'};
+var V={
+home:function(){return '<div class="hero"><h1>Find the Right Tutor for Your Child.</h1><p>Tuition Care connects guardians with verified, qualified tutors across Dhaka. Search, request and track tuition in one place.</p><a class="btn" href="#find">Find a Tutor</a><a class="btn o" href="#tutor-reg">Become a Tutor</a></div><h2>How it works</h2><div class="grid"><div class="card"><h3>1. Register</h3><p class="muted">Guardians and tutors create a free profile.</p></div><div class="card"><h3>2. Match</h3><p class="muted">Search by subject and location, or post your requirement.</p></div><div class="card"><h3>3. Learn</h3><p class="muted">Our team verifies tutors and assigns the best fit.</p></div></div><h2>Why Tuition Care</h2><div class="grid"><div class="card"><h3>✓ Verified tutors</h3><p class="muted">Every profile is checked by our admin team.</p></div><div class="card"><h3>🔎 Smart search</h3><p class="muted">Filter by subject, area and experience.</p></div><div class="card"><h3>🤝 Managed matching</h3><p class="muted">We help guardians and tutors connect safely.</p></div></div><h2>Featured tutors</h2><div class="grid">'+T.filter(function(t){return t.v}).slice(0,3).map(tcard).join('')+'</div>'},
+about:function(){return '<h2>About Us</h2><div class="card"><p>Tuition Care is a tutor finding and tuition management platform. Our goal is a professional, secure and responsive service that connects tutors and guardians efficiently.</p><p class="muted">Tutors build profiles with qualifications, experience, preferred subjects and locations, then apply for tuition. Guardians search tutors, post requirements and track requests. Our admin team verifies tutors and manages every match.</p></div>'},
+find:function(){return '<h2>Find a Tutor</h2><div class="bar"><select id="fs">'+opt(SUB,'All subjects')+'</select><select id="fl">'+opt(LOC,'All locations')+'</select><label style="flex-direction:row;display:flex;align-items:center;gap:6px"><input type="checkbox" id="fv" style="width:auto"> Verified only</label></div><div class="grid" id="res"></div>'},
+'tutor-reg':function(){return '<h2>Tutor Registration</h2>'+form(fld('Full name')+fld('Email','email')+fld('Phone','tel')+fld('Password','password')+fld('Educational qualification')+fld('Teaching experience (years)','number','min="0"')+sel('Preferred subject',SUB)+sel('Preferred location',LOC),'Registration received! Our team will verify your profile and notify you.')},
+'guardian-reg':function(){return '<h2>Guardian Registration</h2>'+form(fld('Full name')+fld('Email','email')+fld('Phone','tel')+fld('Password','password')+sel('Area',LOC),'Welcome to Tuition Care! You can now search tutors and post requirements.')},
+request:function(){return '<h2>Post a Tuition Request</h2>'+form(fld('Guardian name')+fld('Phone','tel')+fld('Student class / grade')+sel('Subject',SUB)+sel('Location',LOC)+fld('Monthly budget (৳)','number','min="0"')+'<label>Notes<textarea rows="3"></textarea></label>','Request posted! Admin will review and assign a suitable tutor. Track it in your dashboard.')},
+login:function(){return '<h2>Login</h2><form id="lg">'+fld('Email','email')+fld('Password','password')+'<label>Login as<select id="role"><option value="tutor-dash">Tutor</option><option value="guardian-dash">Guardian</option><option value="admin-dash">Admin</option></select></label><button class="btn">Login</button><p class="muted">Demo only: any email and password will work.</p></form>'},
+contact:function(){return '<h2>Contact Us</h2><div class="grid"><div>'+form(fld('Name')+fld('Email','email')+'<label>Message<textarea rows="4" required></textarea></label>','Thanks! We will get back to you shortly.')+'</div><div class="card"><h3>Tuition Care</h3><p class="muted">📍 Dhaka, Bangladesh<br>✉️ support@tuitioncare.example<br>🕘 Sat–Thu, 9am–6pm</p></div></div>'},
+'tutor-dash':function(){return '<h2>Tutor Dashboard</h2>'+stat([['82%','Profile complete'],['3','Applications'],['1','Selected']])+'<h2>My applications</h2>'+table(['Tuition','Location','Status'],[['Class 9 Math','Dhanmondi','<span class="tag ok">Selected</span>'],['Class 10 Physics','Mirpur','<span class="tag pend">Pending</span>'],['HSC Math','Uttara','<span class="tag pend">Under review</span>']])},
+'guardian-dash':function(){return '<h2>Guardian Dashboard</h2>'+stat([['2','Active requests'],['1','Tutor assigned']])+'<h2>My requests</h2>'+table(['Subject','Class','Status'],[['English','Class 6','<span class="tag ok">Tutor assigned</span>'],['Math','Class 8','<span class="tag pend">Searching</span>']])+'<p><a class="btn" href="#request">+ New request</a></p>'},
+'admin-dash':function(){return '<h2>Admin Dashboard</h2>'+stat([['128','Tutors'],['94','Guardians'],['17','Open posts'],['৳42,500','Commission (month)']])+'<h2>Verify tutors</h2><div id="ad"></div>'}
+};
+function nav(h){document.getElementById('nav').innerHTML='<a class="logo" href="#home">🎓 Tuition <span>Care</span></a>'+NAV.map(function(x){return '<a class="l'+(x[0]==h?' on':'')+'" href="#'+x[0]+'">'+x[1]+'</a>'}).join('')}
+function drawFind(){var s=fs.value,l=fl.value,v=fv.checked;var r=T.filter(function(t){return(!s||t.s.indexOf(s)>-1)&&(!l||t.l==l)&&(!v||t.v)});res.innerHTML=r.length?r.map(tcard).join(''):'<p class="muted">No tutors match. Try changing filters or <a href="#request">post a request</a>.</p>'}
+function drawAd(){ad.innerHTML=table(['Tutor','Qualification','Status','Action'],T.map(function(t,i){return[t.n,t.e,t.v?'<span class="tag ok">Verified</span>':'<span class="tag pend">Pending</span>','<button class="btn sm '+(t.v?'o':'')+'" data-i="'+i+'">'+(t.v?'Revoke':'Verify')+'</button>']}))}
+function route(){var h=location.hash.slice(1);if(!V[h])h='home';document.getElementById('app').innerHTML=V[h]();nav(h);window.scrollTo(0,0);
+if(h=='find'){drawFind();[fs,fl,fv].forEach(function(e){e.onchange=drawFind})}
+if(h=='admin-dash'){drawAd();ad.onclick=function(e){var i=e.target.dataset.i;if(i!=null){T[i].v=T[i].v?0:1;drawAd()}}}
+if(h=='login')lg.onsubmit=function(e){e.preventDefault();location.hash=role.value};
+document.querySelectorAll('form.f').forEach(function(f){f.onsubmit=function(e){e.preventDefault();f.outerHTML='<div class="done">✅ '+f.dataset.m+'</div>'}})}
+window.addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
